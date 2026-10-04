@@ -24,6 +24,19 @@ RUN mkdir -p \
     /usr/local/xray \
     /opt/config
 
+
+# -----------------------------
+# SNI Spoof
+# -----------------------------
+
+COPY sni-spoof/sni-spoof-rs \
+    /usr/local/sni-spoof/
+
+RUN chmod +x \
+    /usr/local/sni-spoof/sni-spoof-rs
+
+
+
 # -----------------------------
 # Xray
 # -----------------------------
