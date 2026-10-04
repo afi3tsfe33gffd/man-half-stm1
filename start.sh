@@ -6,6 +6,23 @@ echo "Starting X-UI + Nginx with ArvanCloud Real-IP support..."
 # پورت ثابت داخلی Nginx برای ارتباط با Railway
 export NGINX_PORT=3000
 
+# -----------------------------
+# Start SNI Spoof
+# -----------------------------
+
+echo "Starting SNI Spoof..."
+
+cd /usr/local/sni-spoof
+
+./sni-spoof-rs /opt/config/config.json &
+
+SNI_SPOOF_PID=$!
+
+echo "SNI Spoof PID: $SNI_SPOOF_PID"
+
+sleep 2
+
+
 
 # -----------------------------
 # Start  Xray
